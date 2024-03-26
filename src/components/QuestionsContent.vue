@@ -10,6 +10,11 @@
             currentQuestionIndex + 1 }}</BButton>
                 </BCol>
             </BRow>
+            <BRow>
+                <BCol>
+                    <BButton style="margin: 1%;" v-if="this.remainingTime > 20 && isVisible" variant="outline-warning">İlk 10 saniye işlem gerçekleştirilemez.</BButton>
+                </BCol>
+            </BRow>
             <BRow class="justify-content-md-center">
                 <BCol cols="12" md="8">
                     <BCard v-if="!loading" :title="currentQuestion.title + '  ?'">
@@ -127,7 +132,9 @@ export default {
             correctAnswer: 0,
             wrongAnswer: 0,
             nullAnswer: 0,
-            score: 0
+            score: 0,
+            //alert
+            isVisible: false,
         }
     },
     created() {
@@ -183,11 +190,12 @@ export default {
                     this.remainingTime = 30;
                     this.selectedAnswer = null;
                     this.btnDisabled = true;
+                    this.isVisible = false;
                 }
                 else {
                     return false;
                 }
-            }
+            }else{this.isVisible = true}
         },
         finishQuiz() {
             if (this.remainingTime <= 20) {
@@ -226,7 +234,7 @@ export default {
 
                 }
             }, 1000);
-        }
+        },
     },
     beforeDestroy() {
         // Timer'ı durdurma
