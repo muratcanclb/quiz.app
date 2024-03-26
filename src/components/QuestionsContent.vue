@@ -12,7 +12,8 @@
             </BRow>
             <BRow>
                 <BCol>
-                    <BButton style="margin: 1%;" v-if="this.remainingTime > 20 && isVisible" variant="outline-warning">İlk 10 saniye işlem gerçekleştirilemez.</BButton>
+                    <BButton style="margin: 1%;" v-if="this.remainingTime > 20 && isVisible" variant="outline-warning">
+                        İlk 10 saniye işlem gerçekleştirilemez.</BButton>
                 </BCol>
             </BRow>
             <BRow class="justify-content-md-center">
@@ -41,9 +42,9 @@
                 </BCol>
             </BRow>
         </div>
-        <div v-else>
+        <div>
             <BRow class="justify-content-md-center" style="margin-bottom: 2%;">
-                <BCol cols="6" md="7">
+                <BCol cols="12" md="8" sm="6">
                     <b-list-group horizontal style="float: right;">
                         <b-list-group-item>
                             <p style="font-size: 12px;">Doğru Cevap Sayısı</p>
@@ -64,13 +65,17 @@
                     </b-list-group>
 
                 </BCol>
-                <BCol cols="6" md="5">
-                    <BListGroup style="width: 58%;">
-                        <BListGroupItem>Puan: <BButton disabled variant="outline-light"
-                                style="color: black; width: 30px;"> {{ score
-                                }} </BButton>
-                        </BListGroupItem>
-                    </BListGroup>
+                <BCol cols="12" md="4" sm="6">
+                    <BRow>
+                        <BCol cols="12" md="6" sm="4">
+                            <BListGroup>
+                                <BListGroupItem> Sınav Puan: <BButton disabled variant="outline-light"
+                                        style="color: black; width: 30px;"> {{ score
+                                        }} </BButton>
+                                </BListGroupItem>
+                            </BListGroup>
+                        </BCol>
+                    </BRow>
                 </BCol>
             </BRow>
             <BRow v-for="(question, index2) in questions" :key="index2" class="justify-content-md-center">
@@ -95,7 +100,7 @@
                                 </div>
                                 <div v-else>
                                     <BButton disabled variant="outline-dark" style="width: 100%; text-align: left;">{{
-            questionOptions[index] }} {{ option }}</BButton>
+                                        questionOptions[index] }} {{ option }}</BButton>
                                 </div>
                             </li>
                         </ul>
@@ -195,7 +200,7 @@ export default {
                 else {
                     return false;
                 }
-            }else{this.isVisible = true}
+            } else { this.isVisible = true }
         },
         finishQuiz() {
             if (this.remainingTime <= 20) {
