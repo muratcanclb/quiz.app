@@ -42,7 +42,7 @@
                 </BCol>
             </BRow>
         </div>
-        <div>
+        <div v-else>
             <BRow class="justify-content-md-center" style="margin-bottom: 2%;">
                 <BCol cols="12" md="8" sm="6">
                     <b-list-group horizontal style="float: right;">
