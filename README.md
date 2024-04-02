@@ -2,7 +2,7 @@
 ## `QUIZ APP`
 [live preview](https://quiz-app-murat-can-celebis-projects.vercel.app/#/)
 
-<img src="https://github.com/muratcanclb/b.cases/blob/main/quiz.app/src/assets/quizAppSoru.png">
+<img src="https://github.com/muratcanclb/quiz.app/blob/main/src/assets/quizAppSoru.png">
 
 ## Project setup
 
